@@ -26,13 +26,13 @@ export default function RootLayout({
           urbanist.className
         )}
       >
-        <div className="flex h-full">
+        <div className="flex h-full relative">
           {/* sidebar */}
-          <div className="w-[70px] border-r hidden lg:block">
+          <div className="w-[70px] fixed top-0 left-0 bottom-0 h-screen border-r hidden lg:block">
             <Sidebar />
           </div>
           {/* main */}
-          <main className="flex-1 relative">
+          <main className="flex-1 relative lg:ml-[70px]">
             <div className="border-b py-4 sticky top-0 left-0 z-50 bg-background">
               <Navbar />
             </div>
