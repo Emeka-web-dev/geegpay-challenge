@@ -21,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn("min-h-screen h-screen bg-[#fdfdfd]", urbanist.className)}
+        className={cn(
+          "min-h-screen h-screen relative bg-[#fdfdfd]",
+          urbanist.className
+        )}
       >
         <div className="flex h-full">
           {/* sidebar */}
@@ -29,8 +32,8 @@ export default function RootLayout({
             <Sidebar />
           </div>
           {/* main */}
-          <main className="flex-1">
-            <div className="border-b py-4">
+          <main className="flex-1 relative">
+            <div className="border-b py-4 sticky top-0 left-0 z-50 bg-background">
               <Navbar />
             </div>
             {children}

@@ -4,6 +4,7 @@ import { BarChartDropDown } from "@/components/bar-chart-dropdown";
 import { BodyItemComponent } from "@/components/body-item-component";
 import { DataTable } from "@/components/data-table";
 import { LinChart } from "@/components/line-chart";
+import { ProgressBar } from "@/components/progress";
 import { TotalComponent } from "@/components/total-component";
 import { BoxTick } from "iconsax-react";
 import Image from "next/image";
@@ -58,15 +59,61 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="col-span-10 lg:col-span-6 border rounded-xl bg-background">
+      <div className="col-span-10 lg:col-span-6 border p-1 rounded-xl bg-background">
         <BodyItemComponent
           title="Last Orders"
-          navigation={<Link href={"/"}>See All</Link>}
+          navigation={
+            <Link href={"/"} className="p-1 text-[#63cba5]">
+              See All
+            </Link>
+          }
         >
           <DataTable />
         </BodyItemComponent>
       </div>
-      <div className="col-span-10 lg:col-span-4 border h-20">top platform</div>
+      <div className="col-span-10 lg:col-span-4 border p-2 bg-background rounded-xl">
+        <BodyItemComponent
+          title="Top Platform"
+          navigation={
+            <Link href={"/"} className="p-1 text-[#63cba5]">
+              See All
+            </Link>
+          }
+        >
+          <div className="px-2">
+            <div className="flex flex-col space-y-4">
+              <h3 className="font-semibold text-xl">Book Bazaar</h3>
+              <div className="px-2">
+                <ProgressBar progressPerc={66} />
+              </div>
+              <div className="flex justify-between text-gray-600">
+                <p>$2,000,00</p>
+                <p>+15%</p>
+              </div>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <h3 className="font-semibold text-xl">Artisan Arsle</h3>
+              <div className="px-2">
+                <ProgressBar progressPerc={30} />
+              </div>
+              <div className="flex justify-between text-gray-600">
+                <p>$2,000,00</p>
+                <p>+15%</p>
+              </div>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <h3 className="font-semibold text-xl">Toy Trop</h3>
+              <div className="px-2">
+                <ProgressBar progressPerc={86} />
+              </div>
+              <div className="flex justify-between text-gray-600">
+                <p>$2,000,00</p>
+                <p>+15%</p>
+              </div>
+            </div>
+          </div>
+        </BodyItemComponent>
+      </div>
     </main>
   );
 }

@@ -2,14 +2,12 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { table } from "console";
+import { DocumentDownload } from "iconsax-react";
 import Image from "next/image";
 
 const invoices = [
@@ -22,13 +20,48 @@ const invoices = [
     amount: "$80,000",
     status: "Paid",
   },
+  {
+    profile: {
+      name: "Jaydon Vaccaro",
+      image: "/image.JPG",
+    },
+    date: "Nov 23, 2023",
+    amount: "$150,000",
+    status: "Refund",
+  },
+  {
+    profile: {
+      name: "Corey Schleifer",
+      image: "/image.JPG",
+    },
+    date: "Nov 23, 2023",
+    amount: "$80,000",
+    status: "Paid",
+  },
+  {
+    profile: {
+      name: "Philip Luban",
+      image: "/image.JPG",
+    },
+    date: "Nov 23, 2023",
+    amount: "$80,000",
+    status: "Refund",
+  },
+  {
+    profile: {
+      name: "Cooper Press",
+      image: "/image.JPG",
+    },
+    date: "Nov 23, 2023",
+    amount: "$100,000",
+    status: "Paid",
+  },
 ];
 
 export function DataTable() {
   return (
     <div className="overflow-x-auto">
       <Table className="w-full min-w-[600px]">
-        {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
         <TableHeader>
           <TableRow>
             <TableHead className="font-bold text-gray-600 text-lg">
@@ -64,42 +97,23 @@ export function DataTable() {
               </TableCell>
               <TableCell>{invoice.date}</TableCell>
               <TableCell>{invoice.amount}</TableCell>
-              <TableCell>{invoice.status}</TableCell>
-              <TableCell>View</TableCell>
+              <TableCell
+                className={
+                  invoice.status === "Paid"
+                    ? "text-[#63cba5]"
+                    : "text-[#cc5223]"
+                }
+              >
+                {invoice.status}
+              </TableCell>
+              <TableCell className="flex items-center">
+                <DocumentDownload className="w-4 h-4 mr-2" />
+                <p>View</p>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
-        {/* <TableFooter>
-        <TableRow>
-          <TableCell colSpan={3}>Total</TableCell>
-          <TableCell className="text-right">$2,500.00</TableCell>
-        </TableRow>
-      </TableFooter> */}
       </Table>
     </div>
-
-    // <div className=" overflow-x-auto">
-    //   <table className="border w-full min-w-[600px]">
-    //     <tr className="text-left">
-    //       <th>Company</th>
-    //       <th>Contact</th>
-    //       <th>Contact</th>
-    //       <th>Contact</th>
-    //       <th>Country</th>
-    //     </tr>
-    //     <tr className="">
-    //       <td>Alfreds Futterkiste</td>
-    //       <td>Alfreds Futterkiste</td>
-    //       <td>Alfreds Futterkiste</td>
-    //       <td>Maria Anders</td>
-    //       <td>Germany</td>
-    //     </tr>
-    //     <tr>
-    //       <td>Centro comercial Moctezuma</td>
-    //       <td>Francisco Chang</td>
-    //       <td>Mexico</td>
-    //     </tr>
-    //   </table>
-    // </div>
   );
 }
