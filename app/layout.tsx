@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/navbar";
+import { Sidebar } from "@/components/sidebar";
+import SideBarToggle from "@/components/sidebar-toggle";
 
-const inter = Inter({ subsets: ["latin"] });
+const urbanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +20,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn("min-h-screen h-screen bg-[#fdfdfd]", urbanist.className)}
+      >
+        <div className="flex h-full">
+          {/* sidebar */}
+          <div className="w-[70px] border-r hidden lg:block">
+            <Sidebar />
+          </div>
+          {/* main */}
+          <main className="flex-1">
+            <div className="border-b py-4">
+              <Navbar />
+            </div>
+            {children}
+          </main>
+        </div>
+        <SideBarToggle />
+      </body>
     </html>
   );
 }
