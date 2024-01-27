@@ -28,7 +28,7 @@ export default function RootLayout({
       >
         <div className="flex h-full relative">
           {/* sidebar */}
-          <div className="w-[70px] fixed top-0 left-0 bottom-0 h-screen border-r hidden lg:block">
+          <div className="w-[70px] z-50 fixed top-0 left-0 bottom-0 h-screen border-r hidden lg:block">
             <Sidebar />
           </div>
           {/* main */}
